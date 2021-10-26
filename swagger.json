@@ -1,0 +1,644 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "copa"
+  },
+  "tags": [
+    {
+      "name": "copa"
+    }
+  ],
+  "schemes": [
+    "http"
+  ],
+  "paths": {
+    "/atletas": {
+      "get": {
+        "tags": [
+          "atleta"
+        ],
+        "summary": "List all atletas of the database",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "atletas"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "atleta"
+        ],
+        "summary": "Create a new atleta",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "atleta object that needs to be created",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/atleta"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "atleta created successfully"
+          },
+          "400": {
+            "description": "Invalid input"
+          }
+        }
+      }
+    },
+    "/atletas/{id}": {
+      "get": {
+        "tags": [
+          "atleta"
+        ],
+        "summary": "Find a specific atleta by id",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Id of the atleta that will be listed",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation"
+          },
+          "404": {
+            "description": "atleta not found"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "atleta"
+        ],
+        "summary": "Update an existing atleta",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Id of the atleta that will be updated",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "description": "atleta object that needs to be updated",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/atleta"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "atleta updated successfully"
+          },
+          "404": {
+            "description": "atleta not found"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "atleta"
+        ],
+        "summary": "Delete a specific atleta by id",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Id of the atleta that will be deleted",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation"
+          },
+          "404": {
+            "description": "atleta not found"
+          }
+        }
+      }
+    },
+    "/atletas/selec/{selecao}": {
+      "get": {
+        "tags": [
+          "atleta"
+        ],
+        "summary": "Find a specific atleta by selection",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "selecao",
+            "in": "path",
+            "description": "Selection of the atleta that will be listed",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation"
+          },
+          "404": {
+            "description": "atleta not found"
+          }
+        }
+      }
+    },
+    "/atletas/posi/{posicao}": {
+      "get": {
+        "tags": [
+          "atleta"
+        ],
+        "summary": "Find a specific atleta by position",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "posicao",
+            "in": "path",
+            "description": "position of the atleta that will be listed",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation"
+          },
+          "404": {
+            "description": "atleta not found"
+          }
+        }
+      }
+    },
+    "/atletas/num/{numero}": {
+      "get": {
+        "tags": [
+          "atleta"
+        ],
+        "summary": "Find a specific atleta by number",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "posicao",
+            "in": "path",
+            "description": "number of the atleta that will be listed",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation"
+          },
+          "404": {
+            "description": "atleta not found"
+          }
+        }
+      }
+    },
+    "/partidas": {
+      "get": {
+        "tags": [
+          "partida"
+        ],
+        "summary": "List all partidas of the database",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "partidas"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "partida"
+        ],
+        "summary": "Create a new partida",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "partida object that needs to be created",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/partida"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "partida created successfully"
+          },
+          "400": {
+            "description": "Invalid input"
+          }
+        }
+      }
+    },
+    "/partidas/{id}": {
+      "get": {
+        "tags": [
+          "partida"
+        ],
+        "summary": "Find a specific partida by id",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Id of the partida that will be listed",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation"
+          },
+          "404": {
+            "description": "partida not found"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "partida"
+        ],
+        "summary": "Update an existing partida",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Id of the partida that will be updated",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "description": "partida object that needs to be updated",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/partida"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "partida updated successfully"
+          },
+          "404": {
+            "description": "partida not found"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "partida"
+        ],
+        "summary": "Delete a specific partida by id",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Id of the partida that will be deleted",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation"
+          },
+          "404": {
+            "description": "partida not found"
+          }
+        }
+      }
+    },
+    "/partidas/dat/{data}": {
+      "get": {
+        "tags": [
+          "partida"
+        ],
+        "summary": "Find a specific partida by Date",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "posicao",
+            "in": "path",
+            "description": "Date of the partida that will be listed",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation"
+          },
+          "404": {
+            "description": "partida not found"
+          }
+        }
+      }
+    },
+    "/selecoes": {
+      "get": {
+        "tags": [
+          "selecao"
+        ],
+        "summary": "List all selecoes of the database",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "selecoes"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "selecao"
+        ],
+        "summary": "Create a new selecao",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "selecao object that needs to be created",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/selecao"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "selecao created successfully"
+          },
+          "400": {
+            "description": "Invalid input"
+          }
+        }
+      }
+    },
+    "/selecoes/{id}": {
+      "get": {
+        "tags": [
+          "selecao"
+        ],
+        "summary": "Find a specific selecao by id",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Id of the selecao that will be listed",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation"
+          },
+          "404": {
+            "description": "selecao not found"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "selecao"
+        ],
+        "summary": "Update an existing selecao",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Id of the selecao that will be updated",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "description": "selecao object that needs to be updated",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/selecao"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "selecao updated successfully"
+          },
+          "404": {
+            "description": "selecao not found"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "selecao"
+        ],
+        "summary": "Delete a specific selecao by id",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Id of the selecao that will be deleted",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation"
+          },
+          "404": {
+            "description": "selecao not found"
+          }
+        }
+      }
+    },
+    "/selecoes/parti/{participacoes}": {
+      "get": {
+        "tags": [
+          "selecao"
+        ],
+        "summary": "Find a specific selecao by participation",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "participacoes",
+            "in": "path",
+            "description": "participation of the selecao that will be listed",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation"
+          },
+          "404": {
+            "description": "selecao not found"
+          }
+        }
+      }
+    }
+    
+    
+    
+  },
+  "definitions": {
+    "Atleta": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "nome": {
+          "type": "string"
+        },
+        "posicao": {
+          "type": "string"
+        },
+        "selecao": {
+          "type": "string"
+        },
+        "numero": {
+          "type": "integer",
+          "format": "int64"
+        }
+      }
+    },
+    "Partida": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "time1": {
+          "type": "string"
+        },
+        "time2": {
+          "type": "string"
+        },
+        "data": {
+          "type": "string"
+        },
+        "hora": {
+          "type": "string"
+        }
+      }
+    },
+    "Selecao": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "nome": {
+          "type": "string"
+        },
+        "tecnico": {
+          "type": "string"
+        },
+        "capitao": {
+          "type": "string"
+        },
+        "participacoes": {
+          "type": "integer",
+          "format": "int64"
+        }
+      }
+    }
+  }
+}
